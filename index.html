@@ -39,115 +39,7 @@
 <script>WebFontConfig={google:{families:['Lato:300:latin']}};</script>
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async></script>
 
-<style type="text/css">
-  body {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;
-    background-color: #222;
-  }
-
-  main {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    left: 0;
-    width: 90%;
-    max-width: 310px;
-    margin: 0 auto;
-    transform: translateY(-100px);
-    text-align: center;
-  }
-
-  time {
-    display: block;
-    margin-bottom: 20px;
-    font-size: 5rem;
-    letter-spacing: 6px;
-  }
-
-  input,
-  input:focus {
-    margin: 0;
-    border: 0;
-    outline: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-  }
-
-  input {
-    box-sizing: border-box;
-    width: 100%;
-    padding: 12px;
-    transition: 0.5s;
-    border-radius: 2px;
-    background-color: #fff;
-    color: #222;
-    font-family: 'Lato', sans-serif;
-    font-size: 1.1rem;
-  }
-
-  aside {
-    position: fixed;
-    box-sizing: border-box;
-    left: 0;
-    width: 100%;
-    max-width: 190px;
-    height: 100%;
-    padding: 15px 0 0;
-    transition: transform 700ms;
-    transform: translateX(-205px);
-    background-color: #222;
-    box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.2);
-    overflow: auto;
-    z-index: 1;
-  }
-
-  aside[data-toggled='true'] {
-    transform: translateX(0);
-  }
-
-  h1 {
-    margin: 0 25px 15px;
-    line-height: 1rem;
-  }
-
-  ul {
-    margin: 0 0 15px;
-    padding: 0;
-  }
-
-  li {
-    list-style: none;
-  }
-
-  a {
-    display: block;
-    padding: 0 25px;
-    color: #fff;
-    line-height: 1.7rem;
-    text-decoration: none;
-  }
-
-  a:hover .help-name {
-    text-decoration: underline;
-  }
-
-  .help-key {
-    font-family: 'Courier New', monospace;
-  }
-
-  .help-name {
-    font-size: 0.9rem;
-  }
-</style>
+<link rel='stylesheet' href='./night.css' type='text/css'>
 
 <main>
   <time id="js-clock"></time>
@@ -160,6 +52,10 @@
   <h1>~</h1>
   <ul id="js-help"></ul>
 </aside>
+
+<noscript>
+  <link rel='stylesheet' href='./day.css' type='text/css'>
+</noscript>
 
 <script>
   'use strict';
@@ -259,4 +155,14 @@
 
     return { searchInput: searchInput };
   })(config);
+</script>
+<script>
+(function() {
+      var n = new Date().getHours();
+      if (n > 19 || n < 6) { // if after 7pm or before 6am --> use night mode!
+       document.write("<link rel='stylesheet' href='./night.css' type='text/css'>");
+      } else { // otherwise use day mode
+       document.write("<link rel='stylesheet' href='./day.css' type='text/css'>")
+      }
+})();
 </script>
