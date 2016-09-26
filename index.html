@@ -8,6 +8,20 @@
 <title>~</title>
 </head>
 
+<!-- previously where config and font script were -->
+
+<main>
+  <time id="js-clock"></time>
+  <form id="js-search-form" autocomplete="off">
+    <input id="js-search-input" type="text" autofocus>
+  </form>
+</main>
+
+<aside id="js-sidebar">
+  <h1>~</h1>
+  <ul id="js-help"></ul>
+</aside>
+
 <script>
   var config = {
     commands: [
@@ -41,18 +55,6 @@
 
 <script>WebFontConfig={google:{families:['Lato:300:latin']}};</script>
 <script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async></script>
-
-<main>
-  <time id="js-clock"></time>
-  <form id="js-search-form" autocomplete="off">
-    <input id="js-search-input" type="text" autofocus>
-  </form>
-</main>
-
-<aside id="js-sidebar">
-  <h1>~</h1>
-  <ul id="js-help"></ul>
-</aside>
 
 <script>
   'use strict';
